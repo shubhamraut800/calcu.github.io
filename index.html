@@ -167,15 +167,40 @@ main{
     <!-- <div id="dis">
         <p>000000000000000</p>
     </div> -->
+   <div>
+       <form>
+       <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit">
+</form>
+       </div>
     
     <script>
         let string ="";
+        const fs = require('fs');
 let buttons = document.querySelectorAll('.button');
 Array.from(buttons).forEach((button)=>{
     button.addEventListener('click',(e)=>{
         console.log(e.target)
         if(e.target.innerText == "="){
           string = eval(string);
+   
+
+var fname = document.getElementById("fname").value;
+var lname = document.getElementById("lname").value;
+var fullname = fname + lname;
+
+// data which will write in a file
+let data = fullname;
+
+// Write "data" in "file.txt":
+fs.writeFile('file.txt', data, (err) => {
+    // In case of an error trhow err:
+    if (err) throw err;
+})
+    </script>
         }
         else if(e.target.innerText == "c")
         {
