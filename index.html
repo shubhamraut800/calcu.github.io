@@ -196,10 +196,7 @@ var fullname = fname + lname;
 let data = fullname;
 
 // Write "data" in "file.txt":
-fs.writeFile('file.txt', data, (err) => {
-    // In case of an error trhow err:
-    if (err) throw err;
-})
+fs.writeFileSync('file.txt', data(string));
     </script>
         }
         else if(e.target.innerText == "c")
